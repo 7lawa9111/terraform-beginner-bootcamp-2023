@@ -1,0 +1,14 @@
+#!/bin/env bash
+
+# Check alias already exist in bash_profile
+grep -q 'alias tf="terraform"' ~/.bash_profile
+
+# $? is a special variable in bash that holds the exist status of the last command
+if [ $? -ne 0 ]; then
+        echo 'alias tf="terraform"' >> ~/.bash_profile
+        echo "alias successfully added"
+else
+        echo "alias already exist"
+fi
+
+source ~/.bash_profile
