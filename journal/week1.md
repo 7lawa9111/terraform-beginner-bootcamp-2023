@@ -39,7 +39,7 @@ We can use the `-var` flag to set an input variable or override a variable in th
 
 ### var-file flag
 
-- TODO: document this flag
+The -var flag is used to pass values for Input Variables to Terraform commands. This flag can be used with both of the Terraform plan and apply commands. The argument passed to the -var flag is a string surrounded by either single or double quotes.
 
 ### terraform.tvfars
 
@@ -47,9 +47,14 @@ This is the default file to load in terraform variables in blunk
 
 ### auto.tfvars
 
-- TODO: document this functionality for terraform cloud
+tfvars" file is an alternative to using the "-var" flag or environment variables. The file defines the variable values used by the script. If the file is named "terraform. tvars" it is loaded by default. It's important these files don't get checked into source control, or you are potentially exposing sensitive data.
 
 ### order of terraform variables
 
-- TODO: document which terraform variables takes presendence.
+* Environment variables (TF_VAR_variable_name)
+* The terraform.tfvars file.
+* The terraform.tfvars.json file.
+* Any . auto. tfvars or . auto. tfvars. ...
+* Any -var and -var-file options on the command line, in the order they are provided.
+* Variable defaults.
 
